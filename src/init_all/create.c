@@ -29,7 +29,6 @@ int	create_philo(t_philo_gen	*philo_gen)
 	}
 
 	check_die(philo_gen,philo_gen->philo );
-	printf("smt\n");
 	return (0);
 }
 
@@ -52,6 +51,7 @@ int	init_philo(t_philo_gen *philo_gen)
 		philo_gen->philo[index].write = philo_gen->write;
 		philo_gen->philo[index].fix_time =ft_time();
 		philo_gen->philo[index].start_time =ft_time();
+		philo_gen->philo[index].philo_must_eat = 0;
 		index++;
 	}
 	return (0);                                                                                                                                                                                                                

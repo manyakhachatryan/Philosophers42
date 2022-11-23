@@ -12,6 +12,7 @@ while(1)
 	{
 	go_take_fork(philo);
 	ft_printf("has eating", philo);
+	philo->philo_must_eat++;
 	ft_usleep(philo->philo_gen->time_to_eat);
 	philo->fix_time= ft_time();
 	go_put_fork(philo);

@@ -1,5 +1,20 @@
 #include "philosophers.h"
 
+int check_argv_rul(t_philo_gen *philo_gen)
+{
+	if(philo_gen->time_to_eat<60 || philo_gen->time_to_die<60 ||  philo_gen->time_to_sleep<60  || philo_gen->num_of_philo>200 )
+		{
+			printf("You don't have the right to discuss this case\n");
+			return(1);
+		}
+	if( philo_gen->num_of_philo==0)	{
+		return(1);
+	}
+	
+		return(0);
+}
+
+
 int	check_arg(char **arg_str)
 {
 	int	i;

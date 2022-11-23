@@ -9,7 +9,10 @@ t_philo_gen	*philo_gen;
 	{
 		if (check_arg(arg_str)) //parsing
 			error("CHECK_ARG_ERROR");
-		initialize(philo_gen, arg_str, arg_nb);
+		if(initialize(philo_gen, arg_str, arg_nb))
+			return (0);
+		if (check_argv_rul(philo_gen))
+			return(0);
 		if (init_all(philo_gen))
 			error("INIT_PARAMS_ERROR");
 	}
