@@ -14,24 +14,33 @@ typedef struct s_philo_gen	t_philo_gen;
 struct s_philo
 {
 	int				id;
-	int				left_fork;
-	int				right_fork;
-	pthread_t		thread_id;    
-	long long	    start_time;
+	pthread_mutex_t				*left_fork;
+	pthread_mutex_t				*right_fork;
+	  
+
 	long long		last_eat_time;
+	int				time_to_eat;
+		int			time_to_sleep;
+		pthread_mutex_t	*write;
 	pthread_mutex_t	*philo_forks;
-	pthread_mutex_t	write;
+	long long fix_time;
+		long long start_time;
+t_philo_gen	*philo_gen;
 };
 
 struct s_philo_gen
 {
 	int				num_of_philo;
-	int				time_to_die ;
+	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				philo_must_eat;
 	int				check_die;
 	t_philo			*philo;
+	pthread_t		*thread_id;  
+	pthread_mutex_t	*write;
+	pthread_mutex_t	eating;
+	//pthread_mutex_t	sleeping;
 	pthread_mutex_t	*forks_gen;
 };
 
@@ -45,8 +54,13 @@ int			create_mutex(t_philo_gen	*philo_gen);
 int			init_philo(t_philo_gen *philo_gen);
 int			create_philo(t_philo_gen *philo_gen);
 void		*ft_thread_hendler(void *ph);
-int			go_take_fork(t_philo *philo);
+void			go_take_fork(t_philo *philo);
+void	go_put_fork(t_philo *philo);
 long long	ft_time(void);
 void	ft_printf(char *str, t_philo *philo);
+int	check_die(t_philo_gen *philo_gen, t_philo *philo);
+void	go_to_eat(t_philo *philo);
+void	go_to_sleep(t_philo *philo);
+void ft_usleep(long long tm);
 
 #endif

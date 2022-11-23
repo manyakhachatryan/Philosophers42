@@ -2,6 +2,7 @@
 
 int	initialize(t_philo_gen *philo_gen, char **argv, int argc)
 {
+	
 	philo_gen->num_of_philo =  ft_atoi(argv[1]);
 	philo_gen->time_to_die =  ft_atoi(argv[2]);
 	philo_gen->time_to_eat =  ft_atoi(argv[3]);

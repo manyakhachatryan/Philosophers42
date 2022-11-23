@@ -15,6 +15,5 @@ t_philo_gen	*philo_gen;
 	}
 	else
 		error("main_ERROR");
-
 	return (0);
 }
