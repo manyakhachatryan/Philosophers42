@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosophers.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manykhac <manykhac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 15:57:38 by manykhac          #+#    #+#             */
+/*   Updated: 2022/12/09 14:57:01 by manykhac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
@@ -22,9 +33,8 @@ struct s_philo
 	long long		start_time;
 	pthread_mutex_t	*write;
 	pthread_mutex_t	*philo_forks;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
-	t_philo_gen	*philo_gen;
+	int				left_fork;
+	int				right_fork;
 };
 
 struct s_philo_gen
@@ -34,12 +44,9 @@ struct s_philo_gen
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				philo_must_eat;
-	int				check_die;
 	t_philo			*philo;
-	pthread_t		*thread_id;  
+	pthread_t		*thread_id;
 	pthread_mutex_t	*write;
-	pthread_mutex_t	eating;
-	//pthread_mutex_t	sleeping;
 	pthread_mutex_t	*forks_gen;
 };
 
@@ -53,14 +60,14 @@ int			create_mutex(t_philo_gen	*philo_gen);
 int			init_philo(t_philo_gen *philo_gen);
 int			create_philo(t_philo_gen *philo_gen);
 void		*ft_thread_hendler(void *ph);
-void			go_take_fork(t_philo *philo);
-void	go_put_fork(t_philo *philo);
+void		go_take_fork(t_philo *philo);
+void		go_put_fork(t_philo *philo);
 long long	ft_time(void);
-void	ft_printf(char *str, t_philo *philo);
-int	check_die(t_philo_gen *philo_gen, t_philo *philo);
-void	go_to_eat(t_philo *philo);
-void	go_to_sleep(t_philo *philo);
-void ft_usleep(long long tm);
-int check_argv_rul(t_philo_gen *philo_gen);
-
+void		ft_printf(char *str, t_philo *philo);
+int			check_die(t_philo_gen *philo_gen, t_philo *philo);
+void		go_to_eat(t_philo *philo);
+void		go_to_sleep(t_philo *philo);
+void		ft_usleep(long long tm);
+int			check_argv_rul(t_philo_gen *philo_gen);
+void		the_end(t_philo_gen *philo_gen);
 #endif
