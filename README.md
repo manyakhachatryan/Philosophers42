@@ -57,7 +57,7 @@ to easily test your work and your peers’ work. You will find those tests espec
 useful during your defence. Indeed, during defence, you are free to use your tests
 and/or the tests of the peer you are evaluating. \
 • Submit your work to your assigned git repository. Only the work in the git repository will be graded. If Deepthought is assigned to grade your work, it will be done after your peer-evaluations. If an error happens in any section of your work during
-Deepthought’s grading, the evaluation will stop. \
+Deepthought’s grading, the evaluation will stop. 
 
 ## Chapter III
 ### Overview
@@ -77,4 +77,27 @@ a philosopher dies of starvation. \
 • Every philosopher needs to eat and should never starve. \
 • Philosophers don’t speak with each other. \
 • Philosophers don’t know if another philosopher is about to die. \
-• No need to say that philosophers should avoid dying! \
+• No need to say that philosophers should avoid dying! 
+
+## Chapter IV
+### Global rules
+You have to write a program for the mandatory part and another one for the bonus part 
+(if you decide to do the bonus part). They both have to comply with the following rules: \
+• Global variables are forbidden! \
+• Your(s) program(s) should take the following arguments: 
+number_of_philosophers time_to_die time_to_eat time_to_sleep
+[number_of_times_each_philosopher_must_eat] \
+◦ number_of_philosophers: The number of philosophers and also the number
+of forks. \
+◦ time_to_die (in milliseconds): If a philosopher didn’t start eating time_to_die
+milliseconds since the beginning of their last meal or the beginning of the simulation, they die. \
+◦ time_to_eat (in milliseconds): The time it takes for a philosopher to eat.
+During that time, they will need to hold two forks. \
+◦ time_to_sleep (in milliseconds): The time a philosopher will spend sleeping. \
+◦ number_of_times_each_philosopher_must_eat (optional argument): If all
+philosophers have eaten at least number_of_times_each_philosopher_must_eat
+times, the simulation stops. If not specified, the simulation stops when a
+philosopher dies. \
+• Each philosopher has a number ranging from 1 to number_of_philosophers. \
+• Philosopher number 1 sits next to philosopher number number_of_philosophers. \
+Any other philosopher number N sits between philosopher number N - 1 and philosopher number N + 1.
